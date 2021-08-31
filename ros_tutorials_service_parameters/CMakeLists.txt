@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_tutorials_service_parameters)
+project(ros_tutorials_service_parameters2)
 ## A component package required when building the Catkin.
 ## Has dependency on message_generation, std_msgs, roscpp.
 ## Error occurs during the build if these packages are missing.
@@ -21,10 +21,17 @@ include_directories(${catkin_INCLUDE_DIRS})
 ## Build option for the "service_server" node.
 ## Configuration of Executable files, target link libraries, and additional
 ## dependencies.
-add_executable(service_server_p src/service_server_p.cpp)
-add_dependencies(service_server_p ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(service_server_p ${catkin_LIBRARIES})
+add_executable(service_server_p2 src/service_server_p.cpp)
+add_dependencies(service_server_p2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(service_server_p2 ${catkin_LIBRARIES})
 ## Build option for the "service_client" node.
-add_executable(service_client_p src/service_client_p.cpp)
-add_dependencies(service_client_p ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(service_client_p ${catkin_LIBRARIES})
+add_executable(service_client_p2 src/service_client_p.cpp)
+add_dependencies(service_client_p2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(service_client_p2 ${catkin_LIBRARIES})
+
+install( TARGETS
+    service_server_p2
+    service_client_p2
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
